@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-const mongoose = require('morgan');
+const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -8,11 +8,11 @@ const app = express();
 const db = process.env.DB || 'mongodb://localhost/Auto';
 const port = process.env.PORT || 3065;
 app.use(morgan('dev'));
-app.use(morgan('dev'));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connerct(db)
+mongoose.connect(db)
     .then(() => console.log('db connnected'))
     .catch(err => console.error('error happened while connecting db: ' + err));
 

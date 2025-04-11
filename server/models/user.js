@@ -8,6 +8,7 @@ const user = new mongoose.Schema({
     address: { type: String, required: true },
     phone: { type: String, required: true },
     email: { type: String },
+    passportId:{type:String},
     validated: { type: Boolean, default: false },
     password: { type: String, required: true },
     created: { type: Date, default: Date.now, immutable: true },
